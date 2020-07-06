@@ -1,0 +1,11 @@
+*/images/*
+*.mp4
+*.avi
+.DS_Store
+*.jpg
+*.JPG
+*.PNG
+*.jpeg
+*.JPEG
+*.weights
+*.caffemodel
