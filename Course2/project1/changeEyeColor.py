@@ -192,7 +192,8 @@ def changeHueOfHistogram(
     # recreate hsv image with updated hues, covert back to BGR and display
     newImage = cv2.merge([h, s, v])
     newImage = cv2.cvtColor(newImage, cv2.COLOR_HSV2BGR)
-    showImage(newImage)
+    # showImage(newImage)
+    return newImage
 
 
 # finds the largets n consecutive numbers in an array when the array is regarded as circular
@@ -235,7 +236,14 @@ def changeEyeColor(img, eye_color, test=False):
     histogram, eye_pixels, eye_pixel_hue, h, s, v = createHistogramOfColorsInEyeRegion(
         img, circles, eye_radius, test
     )
-    changeHueOfHistogram(histogram, eye_pixels, eye_pixel_hue, h, s, v, eye_color, test)
+    return changeHueOfHistogram(
+        histogram, eye_pixels, eye_pixel_hue, h, s, v, eye_color, test
+    )
 
 
-changeEyeColor(image, "brown", False)
+new_image = changeEyeColor(image, "brown", True)
+plt.figure()
+plt.subplot(121)
+plt.imshow(image[:, :, ::-1])
+plt.subplot(122)
+plt.imshow(new_image[:, :, ::-1])
