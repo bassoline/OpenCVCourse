@@ -10,3 +10,6 @@
 *.weights
 *.caffemodel
 *.mov
+*.dat
+*.t7
+/Course2/lib/
